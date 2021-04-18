@@ -2,7 +2,6 @@ package co.com.sucursal.model.sucursal;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Value;
 
 @Data
 @Builder(builderClassName = "Builder")

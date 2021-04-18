@@ -1,8 +1,9 @@
 apply plugin: 'org.springframework.boot'
 
 dependencies {
-	implementation project(':sucursal-service')
-	implementation project(':jpa-repository')
+    implementation project(':distancematrix')
+    implementation project(':sucursal-service')
+    implementation project(':jpa-repository')
     implementation project(':api-rest')
     implementation project(':model')
     implementation project(':usecase')

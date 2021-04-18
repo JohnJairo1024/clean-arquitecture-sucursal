@@ -8,9 +8,6 @@ con los componentes core de negocio (dominio) y por ultimo el inicio y configura
 Lee el
 articulo [Clean Architecture  Aislando los detalles](https://medium.com/bancolombia-tech/clean-architecture-aislando-los-detalles-4f9530f35d7a)
 
-
-
-
 # Arquitectura
 
 ![Clean Architecture](https://miro.medium.com/max/1400/1*ZdlHz8B0-qu9Y-QO3AXR_w.png)
@@ -61,7 +58,7 @@ Los entry points representan los puntos de entrada de la aplicacion o el inicio 
 
 ### Endpoint
 
-**POST** 
+**POST**
 ``{url}/api/v1/quote``
 
 **HEADER:**
@@ -81,104 +78,104 @@ Los entry points representan los puntos de entrada de la aplicacion o el inicio 
 
 ```json
 {
-   "payload": {
-      "quote": {
-         "branchCode": "179",
-         "quoteNumber": "111111111",
-         "consecutiveNumber": "0",
-         "startDate": "2020-09-13",
-         "endDate": "2021-09-13"
+  "payload": {
+    "quote": {
+      "branchCode": "179",
+      "quoteNumber": "111111111",
+      "consecutiveNumber": "0",
+      "startDate": "2020-09-13",
+      "endDate": "2021-09-13"
+    },
+    "insurance": {
+      "line": "1",
+      "product": "10001"
+    },
+    "vehicle": {
+      "plate": "TKG777",
+      "use": {
+        "code": "001",
+        "name": "PARTICULAR"
       },
-      "insurance": {
-            "line": "1",            
-            "product": "10001" 
-      }, 
-      "vehicle": {
-         "plate": "TKG777",
-         "use": {
-            "code": "001",
-            "name": "PARTICULAR"
-         },
-         "type": {
-            "code": "1",
-            "name": "AUTO"
-         },
-         "brand": {
-            "code": "80",
-            "name": "RENAULT"
-         },
-         "model": {
-            "code": "1188",
-            "name": "SANDERO"
-         },
-         "address": {
-            "area": {
-               "level1": {
-                  "code": "05001",
-                  "name": "BOGOTA"
-               },
-               "level2": {
-                  "code": "",
-                  "name": ""
-               },
-               "level3": {
-                  "code": "",
-                  "name": ""
-               }
-            }
-         },
-         "year": "2018",
-         "engineSerial": "APIMO1701009P",
-         "chasisSerial": "APISERIE170221009P",
-         "seats": "5",
-         "condition": "NEW", 
-         "commercialValue": {           
-            "amount": "5000000",
-            "currency": "CLP"
-         }  
+      "type": {
+        "code": "1",
+        "name": "AUTO"
       },
-      "customer": {
-         "identificationDocument": {
-            "type": "1",
-            "number": "80497816",
-            "validator":""  
-         },
-         "personType": {
-            "code": "001",
-            "name": "NATURAL"
-         },
-         "names": "CARLOS ANDRE",
-         "paternal": "NAVARRO",
-         "maternal": "COLMENARES",
-         "birthdate": "1975-09-06",
-         "gender":"M",
-         "maritalStatus": "S",
-         "nationality": "M", 
-         "primaryContact": {
-            "phoneNumber": "952802253",
-            "cellphone": "",
-            "email": "prueba@prueba.com.co"
-         },
-         "address": {
-            "street": "MONEDA",
-            "number": "970",
-            "area": {
-               "level1":{
-                  "code": "05001",
-                  "name": "BOGOTA"
-               },
-               "level2":{
-                  "code": "001",
-                  "name": "AVENIDITA"
-               },
-               "level3":{
-                  "code": "05001",
-                  "name": "BOGOTA"
-               }
-            }  
-          }  
+      "brand": {
+        "code": "80",
+        "name": "RENAULT"
+      },
+      "model": {
+        "code": "1188",
+        "name": "SANDERO"
+      },
+      "address": {
+        "area": {
+          "level1": {
+            "code": "05001",
+            "name": "BOGOTA"
+          },
+          "level2": {
+            "code": "",
+            "name": ""
+          },
+          "level3": {
+            "code": "",
+            "name": ""
+          }
+        }
+      },
+      "year": "2018",
+      "engineSerial": "APIMO1701009P",
+      "chasisSerial": "APISERIE170221009P",
+      "seats": "5",
+      "condition": "NEW",
+      "commercialValue": {
+        "amount": "5000000",
+        "currency": "CLP"
       }
-   }
+    },
+    "customer": {
+      "identificationDocument": {
+        "type": "1",
+        "number": "80497816",
+        "validator": ""
+      },
+      "personType": {
+        "code": "001",
+        "name": "NATURAL"
+      },
+      "names": "CARLOS ANDRE",
+      "paternal": "NAVARRO",
+      "maternal": "COLMENARES",
+      "birthdate": "1975-09-06",
+      "gender": "M",
+      "maritalStatus": "S",
+      "nationality": "M",
+      "primaryContact": {
+        "phoneNumber": "952802253",
+        "cellphone": "",
+        "email": "prueba@prueba.com.co"
+      },
+      "address": {
+        "street": "MONEDA",
+        "number": "970",
+        "area": {
+          "level1": {
+            "code": "05001",
+            "name": "BOGOTA"
+          },
+          "level2": {
+            "code": "001",
+            "name": "AVENIDITA"
+          },
+          "level3": {
+            "code": "05001",
+            "name": "BOGOTA"
+          }
+        }
+      }
+    }
+  }
 }
 ```
 
