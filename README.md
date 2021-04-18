@@ -49,6 +49,10 @@ interactuar.
 
 Los entry points representan los puntos de entrada de la aplicacion o el inicio de los flujos de negocio.
 
+##
+
+##
+
 ![Arqutectura Limpia](https://user-images.githubusercontent.com/17706660/115155574-40306380-a046-11eb-9f1e-10f513757993.png)
 
 ##
