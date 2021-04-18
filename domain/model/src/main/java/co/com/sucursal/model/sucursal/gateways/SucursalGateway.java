@@ -6,7 +6,7 @@ import co.com.sucursal.model.sucursal.Sucursal;
 import java.util.List;
 
 
-public interface SucursalRepository {
+public interface SucursalGateway {
 
     List<Sucursal> findAll();
 

@@ -1,11 +1,9 @@
 package co.com.sucursal.usecase.sucursal;
 
 import co.com.sucursal.model.sucursal.Sucursal;
-import co.com.sucursal.model.sucursal.gateways.SucursalRepository;
+import co.com.sucursal.model.sucursal.gateways.SucursalGateway;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -14,15 +12,14 @@ import java.util.List;
  * orquestando los flujos hacia el módulo de entities
  */
 
-@Service
-@Transactional
+
 @RequiredArgsConstructor
 public class SucursalUseCaseAll {
 
-    private final SucursalRepository sucursalRepository;
+    private final SucursalGateway sucursalGateway;
 
     public List<Sucursal> getAllSucursal() {
-        return sucursalRepository.findAll();
+        return sucursalGateway.findAll();
     }
 
 }

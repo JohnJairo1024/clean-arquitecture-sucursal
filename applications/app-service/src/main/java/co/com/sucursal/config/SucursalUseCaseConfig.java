@@ -1,6 +1,6 @@
 package co.com.sucursal.config;
 
-import co.com.sucursal.model.sucursal.gateways.SucursalRepository;
+import co.com.sucursal.model.sucursal.gateways.SucursalGateway;
 import co.com.sucursal.usecase.sucursal.SucursalUseCaseAll;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.Configuration;
 public class SucursalUseCaseConfig {
 
     @Bean
-    public SucursalUseCaseAll getSucursalUseCaseAll(SucursalRepository sucursalRepository) {
-        return new SucursalUseCaseAll(sucursalRepository);
+    public SucursalUseCaseAll getSucursalUseCaseAll(SucursalGateway sucursalGateway) {
+        return new SucursalUseCaseAll(sucursalGateway);
     }
 
 }

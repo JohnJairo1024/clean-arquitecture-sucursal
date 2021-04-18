@@ -1,7 +1,7 @@
 package co.com.sucursal.sucursalservice;
 
 import co.com.sucursal.model.sucursal.Sucursal;
-import co.com.sucursal.model.sucursal.gateways.SucursalRepository;
+import co.com.sucursal.model.sucursal.gateways.SucursalGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ApiService implements SucursalRepository {
+public class ApiService implements SucursalGateway {
 
     @Autowired
     private SucurRepository sucurRepository;
