@@ -14,5 +14,3 @@ include ':jpa-repository-commons'
 project(':jpa-repository-commons').projectDir = file('./infrastructure/helpers/jpa-repository-commons')
 include ':sucursal-service'
 project(':sucursal-service').projectDir = file('./infrastructure/driven-adapters/sucursal-service')
-include ':distancematrix'
-project(':distancematrix').projectDir = file('./infrastructure/driven-adapters/distancematrix')

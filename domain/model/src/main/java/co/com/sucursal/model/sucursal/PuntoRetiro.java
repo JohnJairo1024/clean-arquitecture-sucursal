@@ -3,14 +3,12 @@ package co.com.sucursal.model.sucursal;
 import lombok.Data;
 
 @Data
-public class Sucursal extends MensajeOut {
+public class PuntoRetiro {
 
     private int id;
-    private String direccion;
-    private String horarioAtencion;
+    private int capacidad;
     private String latitud;
     private String longitud;
-    private int distancia;
 
 }
 

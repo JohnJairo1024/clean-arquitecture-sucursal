@@ -1,6 +1,0 @@
-dependencies {
-    compile project(':model')
-    compile 'org.springframework:spring-context'
-    compile group: 'org.springframework', name: 'spring-web', version: '3.2.10.RELEASE'
-    implementation group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.4'
-}

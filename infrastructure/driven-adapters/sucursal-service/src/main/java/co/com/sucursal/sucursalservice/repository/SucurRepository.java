@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SucurRepository extends JpaRepository<SucursalEntity, Integer> {
 
+    SucursalEntity getSucursalEntityByLatitudAndLongitud(String latitude, String longitud);
+
 }
 
 	

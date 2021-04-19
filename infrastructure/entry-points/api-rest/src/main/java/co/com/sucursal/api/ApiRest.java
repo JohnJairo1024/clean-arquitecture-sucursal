@@ -1,7 +1,7 @@
 package co.com.sucursal.api;
 
 import co.com.sucursal.model.sucursal.Sucursal;
-import co.com.sucursal.usecase.sucursal.SucursalUseCaseAll;
+import co.com.sucursal.usecase.sucursal.SucursalUseCase;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class ApiRest {
 
     private final Logger logger = LoggerFactory.getLogger(ApiRest.class);
 
-    private final SucursalUseCaseAll sucursalUseCaseAll;
+    private final SucursalUseCase sucursalUseCase;
 
     @GetMapping(path = "/hello")
     public String health() {
@@ -30,8 +31,16 @@ public class ApiRest {
     @GetMapping("/sucursales")
     public ResponseEntity<List<Sucursal>> getAllSubsidiary() {
         logger.info("Find All Sucursal : {}-{}");
-        return ResponseEntity.ok(sucursalUseCaseAll.getAllSucursal());
+        return ResponseEntity.ok(sucursalUseCase.getAllSucursal());
     }
 
+    @GetMapping("/sucursalCercana")
+    public ResponseEntity<Sucursal> getsucursalCercana(
+            @RequestParam("origins") String origenLatylong,
+            @RequestParam("destinations") String destinoLatylong
+    ) {
+        logger.info("Find sucursalCercana origen : {}", origenLatylong, destinoLatylong);
+        return sucursalUseCase.getSucursalCercana(origenLatylong, destinoLatylong);
+    }
 
 }

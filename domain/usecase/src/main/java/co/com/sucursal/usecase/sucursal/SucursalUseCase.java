@@ -3,6 +3,7 @@ package co.com.sucursal.usecase.sucursal;
 import co.com.sucursal.model.sucursal.Sucursal;
 import co.com.sucursal.model.sucursal.gateways.SucursalGateway;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -14,12 +15,20 @@ import java.util.List;
 
 
 @RequiredArgsConstructor
-public class SucursalUseCaseAll {
+public class SucursalUseCase {
 
     private final SucursalGateway sucursalGateway;
 
     public List<Sucursal> getAllSucursal() {
         return sucursalGateway.findAll();
+    }
+
+    public ResponseEntity<Sucursal> getSucursalCercana(String origenLatylong, String destinoLatylong) {
+        return sucursalGateway.getSucursalCercana(origenLatylong, destinoLatylong);
+    }
+
+    public Sucursal createSucursal(Sucursal sucursal) {
+        return sucursalGateway.save(sucursal);
     }
 
 }
