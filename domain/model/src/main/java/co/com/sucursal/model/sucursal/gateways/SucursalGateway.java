@@ -13,6 +13,6 @@ public interface SucursalGateway {
 
     ResponseEntity<Sucursal> getSucursalCercana(String origenLatylong, String destinoLatylong);
 
-    Sucursal save(Sucursal sucursal);
+    Sucursal saveSucursal(Sucursal sucursal);
 
 }

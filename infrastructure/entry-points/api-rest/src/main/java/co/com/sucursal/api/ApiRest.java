@@ -7,10 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,6 +38,12 @@ public class ApiRest {
     ) {
         logger.info("Find sucursalCercana origen : {}", origenLatylong, destinoLatylong);
         return sucursalUseCase.getSucursalCercana(origenLatylong, destinoLatylong);
+    }
+
+    @PostMapping("/sucursales")
+    public Sucursal addSucursal(@RequestBody Sucursal sucursal) {
+        logger.info("Create sucursal");
+        return sucursalUseCase.createSucursal(sucursal);
     }
 
 }

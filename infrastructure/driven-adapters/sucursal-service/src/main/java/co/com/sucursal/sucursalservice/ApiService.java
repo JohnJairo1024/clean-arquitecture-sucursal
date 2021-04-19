@@ -10,7 +10,6 @@ import co.com.sucursal.sucursalservice.util.Constantes;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,16 +50,32 @@ public class ApiService implements SucursalGateway {
             String destino = getSucursalCercana.getLatitud().concat(",").concat(getSucursalCercana.getLongitud());
             int distancia = CalcularDistancia.obtenerDistancia(origenLatylong, destino);
             Sucursal sucursal = new Sucursal();
-            sucursal.setDistancia(distancia);
+            sucursal.setDistancia(distancia + " Kilometros");
             return new ResponseEntity<>(sucursal, HttpStatus.OK);
-        } catch (HttpClientErrorException e) {
+        } catch (Exception e) {
             throw new ServerException(Constantes.RESPUESTA_FALLIDA);
         }
     }
 
 
     @Override
-    public Sucursal save(Sucursal sucursal) {
-        return null;
+    public Sucursal saveSucursal(Sucursal sucursal) {
+
+        if (sucursal == null) {
+            throw new ServerException(Constantes.RESPUESTA_FALLIDA);
+        }
+
+        Sucursal sucur = new Sucursal();
+        sucurRepository.addSucursalData(
+                sucursal.getId(),
+                sucursal.getDireccion(),
+                sucursal.getHorarioAtencion(),
+                sucursal.getLatitud(),
+                sucursal.getLongitud()
+        );
+        sucur.setCode(String.valueOf(Constantes.CODE_OK));
+        sucur.setDescription("Se guarda con exito la sucursal");
+        return sucursal;
+
     }
 }

@@ -28,7 +28,7 @@ public class SucursalUseCase {
     }
 
     public Sucursal createSucursal(Sucursal sucursal) {
-        return sucursalGateway.save(sucursal);
+        return sucursalGateway.saveSucursal(sucursal);
     }
 
 }

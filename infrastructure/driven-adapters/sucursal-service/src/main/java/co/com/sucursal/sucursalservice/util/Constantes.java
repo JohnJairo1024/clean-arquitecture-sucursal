@@ -11,6 +11,7 @@ public final class Constantes {
      * Obtener el tsec del servicio de grantinTicket
      */
     public static final String CODE = "code";
+    public static final int CODE_OK = 200;
     public static final String DESCRIPTION = "description";
     public static final String ERROR_500 = "500 Internal Server Error";
     public static final String CONSULTA_STATUS_401 = "CONSULTA MENSAJE STATUS 401: {}";

@@ -8,6 +8,8 @@ dependencies {
     implementation project(':usecase')
     implementation('org.postgresql:postgresql')
     implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+    implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
     compile 'org.springframework.boot:spring-boot-starter'
     runtime('org.springframework.boot:spring-boot-devtools')
 }
