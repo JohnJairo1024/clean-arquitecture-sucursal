@@ -18,9 +18,19 @@ public class ApiRest {
 
     private final Logger logger = LoggerFactory.getLogger(ApiRest.class);
 
+//    @Autowired
+//    private Environment env;
+
+
     private final SucursalUseCase sucursalUseCase;
 
-    @GetMapping(path = "/hello")
+
+//    @GetMapping(path = "envdetails")
+//    public String envdetails() {
+//        return env.toString();
+//    }
+
+    @GetMapping(path = "health")
     public String health() {
         return "La aplicacion funciona correctamente...";
     }
@@ -44,6 +54,11 @@ public class ApiRest {
     public Sucursal addSucursal(@RequestBody Sucursal sucursal) {
         logger.info("Create sucursal");
         return sucursalUseCase.createSucursal(sucursal);
+    }
+
+    @DeleteMapping("/sucursal/{id}")
+    public void deleteSucursal(@PathVariable int id) {
+        sucursalUseCase.deleteSucursal(id);
     }
 
 }

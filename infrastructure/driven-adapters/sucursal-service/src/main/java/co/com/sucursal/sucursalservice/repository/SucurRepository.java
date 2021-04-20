@@ -27,6 +27,21 @@ public interface SucurRepository extends JpaRepository<SucursalEntity, Integer> 
             @Param("longitud") String longitud
     );
 
+//    @Transactional
+//    @Modifying
+//    @Query(value = "delete from sucursal_entity where (:id)", nativeQuery = true)
+//    void deleteSucursal(@Param("id") int id);
+
+    @Transactional
+    @Modifying
+    @Query(value = "DELETE FROM sucursal_entity WHERE id = ?1", nativeQuery = true)
+    void deleteSucursal(int id);
+
+
+    @Modifying
+    @Query("delete from SucursalEntity u where u.id = ?1")
+    void deleteUsersById(int id);
+
 }
 
 	

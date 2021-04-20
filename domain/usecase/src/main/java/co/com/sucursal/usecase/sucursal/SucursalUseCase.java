@@ -31,4 +31,7 @@ public class SucursalUseCase {
         return sucursalGateway.saveSucursal(sucursal);
     }
 
+    public void deleteSucursal(int id) {
+        sucursalGateway.deleteSucursal(id);
+    }
 }

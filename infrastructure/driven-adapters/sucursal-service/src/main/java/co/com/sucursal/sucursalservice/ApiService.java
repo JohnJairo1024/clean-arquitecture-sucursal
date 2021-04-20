@@ -25,18 +25,23 @@ public class ApiService implements SucursalGateway {
 
     @Override
     public List<Sucursal> findAll() {
-        List<SucursalEntity> all = sucurRepository.findAll();
-        List<Sucursal> listSucursal = new ArrayList<>();
-        for (SucursalEntity entity : all) {
-            Sucursal build = new Sucursal();
-            build.setId(entity.getId());
-            build.setDireccion(entity.getDireccion());
-            build.setHorarioAtencion(entity.getHorarioAtencion());
-            build.setLatitud(entity.getLatitud());
-            build.setLongitud(entity.getLongitud());
-            listSucursal.add(build);
+        try {
+            List<SucursalEntity> all = sucurRepository.findAll();
+            List<Sucursal> listSucursal = new ArrayList<>();
+            for (SucursalEntity entity : all) {
+                Sucursal build = new Sucursal();
+                build.setId(entity.getId());
+                build.setDireccion(entity.getDireccion());
+                build.setHorarioAtencion(entity.getHorarioAtencion());
+                build.setLatitud(entity.getLatitud());
+                build.setLongitud(entity.getLongitud());
+                listSucursal.add(build);
+            }
+            return listSucursal;
+
+        } catch (Exception e) {
+            throw new ServerException(Constantes.RESPUESTA_FALLIDA);
         }
-        return listSucursal;
     }
 
     @Override
@@ -60,22 +65,36 @@ public class ApiService implements SucursalGateway {
 
     @Override
     public Sucursal saveSucursal(Sucursal sucursal) {
+        try {
+            if (sucursal == null) {
+                throw new ServerException(Constantes.RESPUESTA_FALLIDA);
+            }
 
-        if (sucursal == null) {
+            Sucursal sucur = new Sucursal();
+            sucurRepository.addSucursalData(
+                    sucursal.getId(),
+                    sucursal.getDireccion(),
+                    sucursal.getHorarioAtencion(),
+                    sucursal.getLatitud(),
+                    sucursal.getLongitud()
+            );
+            sucur.setCode(String.valueOf(Constantes.CODE_OK));
+            sucur.setDescription("Se guarda con exito la sucursal");
+            return sucur;
+        } catch (Exception e) {
             throw new ServerException(Constantes.RESPUESTA_FALLIDA);
         }
+    }
 
-        Sucursal sucur = new Sucursal();
-        sucurRepository.addSucursalData(
-                sucursal.getId(),
-                sucursal.getDireccion(),
-                sucursal.getHorarioAtencion(),
-                sucursal.getLatitud(),
-                sucursal.getLongitud()
-        );
-        sucur.setCode(String.valueOf(Constantes.CODE_OK));
-        sucur.setDescription("Se guarda con exito la sucursal");
-        return sucursal;
-
+    @Override
+    public void deleteSucursal(int id) {
+        try {
+            Sucursal sucur = new Sucursal();
+            sucurRepository.deleteSucursal(id);
+            sucur.setCode(String.valueOf(Constantes.CODE_OK));
+            sucur.setDescription("Se elimina con exito la sucursal");
+        } catch (Exception e) {
+            throw new ServerException(Constantes.RESPUESTA_FALLIDA);
+        }
     }
 }

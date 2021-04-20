@@ -18,5 +18,11 @@ public final class Constantes {
     public static final String ERROR_404 = "404 not found";
     public static final String RESPUESTA_FALLIDA = "Something went wrong. Please try again later.";
 
+    /**
+     *
+     */
+    public static final String DESTINATIONS = "&destinations=";
+    public static final String KEY = "&key=";
+
 
 }

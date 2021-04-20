@@ -15,4 +15,5 @@ public interface SucursalGateway {
 
     Sucursal saveSucursal(Sucursal sucursal);
 
+    void deleteSucursal(int id);
 }
