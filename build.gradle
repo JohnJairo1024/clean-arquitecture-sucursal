@@ -13,28 +13,18 @@ plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'org.sonarqube' version "${sonarVersion}"
     id 'jacoco'
-    id 'com.palantir.docker' version '0.22.1'
-    id 'com.palantir.docker-run' version '0.22.1'
+//    id 'com.palantir.docker' version '0.22.1'
 }
 
 repositories {
     mavenCentral()
 }
-
-docker {
-    name "${project.name}:${project.version}"
-    files "$buildDir/libs/${project.name}-${project.version}.jar"
-    buildArgs([JAR_FILE: "${project.name}-${project.version}.jar"])
-}
-
-dockerRun {
-    name "${project.name}"
-    image "${project.name}:${project.version}"
-    ports '8080:8080'
-    clean true
-    daemonize false
-}
-
+//
+//docker {
+//    name "${project.name}:${project.version}"
+//    files "$buildDir/libs/${project.name}-${project.version}.jar"
+//    buildArgs([JAR_FILE: "${project.name}-${project.version}.jar"])
+//}
 
 sonarqube {
     properties {

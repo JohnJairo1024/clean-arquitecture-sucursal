@@ -103,3 +103,10 @@ Los entry points representan los puntos de entrada de la aplicacion o el inicio 
   "longitud": "-74.57926370200168"
 }
 ```
+
+**DOCKER COMPOSE:**
+
+```
+- docker-compose up
+- docker-compose up -build
+```

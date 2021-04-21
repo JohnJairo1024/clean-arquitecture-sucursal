@@ -51,8 +51,7 @@ public class CalcularDistancia {
      */
     private static void getSucursalCercana(List<SucursalEntity> list, SucursalCercana sucursalCercana, Map<Integer, Double> sortedByCount) {
         for (Map.Entry<Integer, Double> entry : sortedByCount.entrySet()) {
-            sucursalCercana
-                    .setInformacionSucursal("La sucursal mas cercana es :" + list.get(entry.getKey()).getDireccion());
+            sucursalCercana.setInfoSucursal("La sucursal mas cercana es :" + list.get(entry.getKey()).getDireccion());
             sucursalCercana.setDistancia(sortedByCount.get(entry.getKey()));
             break;
         }

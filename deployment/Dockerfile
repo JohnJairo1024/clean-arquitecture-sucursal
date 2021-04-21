@@ -1,4 +1,4 @@
 FROM openjdk:8-jdk-alpine
-ARG JAR_FILE
-COPY ${JAR_FILE} /app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
+COPY ${JAR_FILE} app-service.jar
+#EXPOSE 8085
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app-service.jar"]
