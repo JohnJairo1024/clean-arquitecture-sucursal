@@ -1,6 +1,7 @@
 package co.com.sucursal.sucursalservice;
 
 import co.com.sucursal.model.sucursal.Sucursal;
+import co.com.sucursal.model.sucursal.SucursalCercana;
 import co.com.sucursal.model.sucursal.gateways.SucursalGateway;
 import co.com.sucursal.sucursalservice.client.CalcularDistancia;
 import co.com.sucursal.sucursalservice.entity.SucursalEntity;
@@ -33,8 +34,8 @@ public class ApiService implements SucursalGateway {
                 build.setId(entity.getId());
                 build.setDireccion(entity.getDireccion());
                 build.setHorarioAtencion(entity.getHorarioAtencion());
-                build.setLatitud(entity.getLatitud());
-                build.setLongitud(entity.getLongitud());
+                build.setLatitud(String.valueOf(entity.getLatitud()));
+                build.setLongitud(String.valueOf(entity.getLongitud()));
                 listSucursal.add(build);
             }
             return listSucursal;
@@ -45,17 +46,13 @@ public class ApiService implements SucursalGateway {
     }
 
     @Override
-    public ResponseEntity<Sucursal> getSucursalCercana(String origenLatylong, String destinoLatylong) {
+    public ResponseEntity<SucursalCercana> getSucursalCercana(double latitude, double longitud) {
         try {
-            String string = destinoLatylong;
-            String[] parts = string.split("\\,");
-            String latitud = parts[0];
-            String longitud = parts[1];
-            SucursalEntity getSucursalCercana = sucurRepository.getSucursalEntityByLatitudAndLongitud(latitud, longitud);
-            String destino = getSucursalCercana.getLatitud().concat(",").concat(getSucursalCercana.getLongitud());
-            int distancia = CalcularDistancia.obtenerDistancia(origenLatylong, destino);
-            Sucursal sucursal = new Sucursal();
-            sucursal.setDistancia(distancia + " Kilometros");
+            List<SucursalEntity> listSucursal = sucurRepository.findAll();
+            SucursalCercana sucursalCercana = CalcularDistancia.calcularDistancia(latitude, longitud, listSucursal);
+            SucursalCercana sucursal = new SucursalCercana();
+            sucursal.setInfoSucursal(sucursalCercana.getInfoSucursal());
+            sucursal.setDistancia(sucursalCercana.getDistancia());
             return new ResponseEntity<>(sucursal, HttpStatus.OK);
         } catch (Exception e) {
             throw new ServerException(Constantes.RESPUESTA_FALLIDA);

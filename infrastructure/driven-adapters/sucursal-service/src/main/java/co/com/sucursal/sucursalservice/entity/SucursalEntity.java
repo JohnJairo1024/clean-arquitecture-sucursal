@@ -17,7 +17,7 @@ public class SucursalEntity {
     private int id;
     private String direccion;
     private String horarioAtencion;
-    private String latitud;
-    private String longitud;
+    private double latitud;
+    private double longitud;
 
 }

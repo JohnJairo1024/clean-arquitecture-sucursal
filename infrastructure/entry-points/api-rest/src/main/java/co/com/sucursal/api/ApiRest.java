@@ -1,6 +1,7 @@
 package co.com.sucursal.api;
 
 import co.com.sucursal.model.sucursal.Sucursal;
+import co.com.sucursal.model.sucursal.SucursalCercana;
 import co.com.sucursal.usecase.sucursal.SucursalUseCase;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
@@ -42,12 +43,12 @@ public class ApiRest {
     }
 
     @GetMapping("/sucursalCercana")
-    public ResponseEntity<Sucursal> getsucursalCercana(
-            @RequestParam("origins") String origenLatylong,
-            @RequestParam("destinations") String destinoLatylong
+    public ResponseEntity<SucursalCercana> getsucursalCercana(
+            @RequestParam("latitude") double latitude,
+            @RequestParam("longitud") double longitud
     ) {
-        logger.info("Find sucursalCercana origen : {}", origenLatylong, destinoLatylong);
-        return sucursalUseCase.getSucursalCercana(origenLatylong, destinoLatylong);
+        logger.info("Find sucursalCercana origen : {}", latitude, longitud);
+        return sucursalUseCase.getSucursalCercana(latitude, longitud);
     }
 
     @PostMapping("/sucursales")

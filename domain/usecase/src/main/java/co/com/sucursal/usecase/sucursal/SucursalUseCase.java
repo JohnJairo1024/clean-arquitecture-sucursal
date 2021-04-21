@@ -1,6 +1,7 @@
 package co.com.sucursal.usecase.sucursal;
 
 import co.com.sucursal.model.sucursal.Sucursal;
+import co.com.sucursal.model.sucursal.SucursalCercana;
 import co.com.sucursal.model.sucursal.gateways.SucursalGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +24,8 @@ public class SucursalUseCase {
         return sucursalGateway.findAll();
     }
 
-    public ResponseEntity<Sucursal> getSucursalCercana(String origenLatylong, String destinoLatylong) {
-        return sucursalGateway.getSucursalCercana(origenLatylong, destinoLatylong);
+    public ResponseEntity<SucursalCercana> getSucursalCercana(double latitude, double longitud) {
+        return sucursalGateway.getSucursalCercana(latitude, longitud);
     }
 
     public Sucursal createSucursal(Sucursal sucursal) {

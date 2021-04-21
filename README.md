@@ -62,7 +62,9 @@ Los entry points representan los puntos de entrada de la aplicacion o el inicio 
 ``http://localhost:8080/swagger-ui.html#/``
 
 ![image](https://user-images.githubusercontent.com/17706660/115325207-cf29a280-a150-11eb-9aeb-34172fcafbe0.png)
+
 ##
+
 **POST**
 ``http://localhost:8080/api/sucursales``
 
